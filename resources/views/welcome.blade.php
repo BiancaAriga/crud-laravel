@@ -6,7 +6,7 @@
 </head>
 <body>
   
-<div class="container" style="text-align: center;">
+<div class="container" style="text-align: center; padding: 20px 0;">
     <a href="/itens">Ir para minha lista de compras</a>
 </div>
    

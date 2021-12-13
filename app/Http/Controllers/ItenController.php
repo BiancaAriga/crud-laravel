@@ -65,9 +65,9 @@ class ItenController extends Controller
      * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(Iten $item)
+    public function edit(Iten $iten)
     {
-        return view('itens.edit',compact('item'));
+        return view('itens.edit',compact('iten'));
     }
 
     /**
@@ -77,13 +77,13 @@ class ItenController extends Controller
      * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Iten $item)
+    public function update(Request $request, Iten $iten)
     {
         $request->validate([
             'name' => 'required',
         ]);
     
-        $item->update($request->all());
+        $iten->update($request->all());
     
         return redirect()->route('itens.index')
                         ->with('success','Item atualizado com sucesso.');
@@ -95,9 +95,9 @@ class ItenController extends Controller
      * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Iten $item)
+    public function destroy(Iten $iten)
     {
-        $item->delete();
+        $iten->delete();
     
         return redirect()->route('itens.index')
                         ->with('success','Item deletado com sucesso.');

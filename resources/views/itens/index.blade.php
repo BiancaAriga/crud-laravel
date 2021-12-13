@@ -28,14 +28,11 @@
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $item->name }}</td>
-            <td>
+            <td style="display: flex;">
+                <a class="btn btn-primary" href="{{ route('itens.edit',$item->id) }}" style="margin-right: 5px">Editar</a>
                 <form action="{{ route('itens.destroy',$item->id) }}" method="POST">
-   
-                <a class="btn btn-primary" href="{{ route('itens.edit',$item->id) }}">Editar</a>
-   
                     @csrf
                     @method('DELETE')
-      
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>

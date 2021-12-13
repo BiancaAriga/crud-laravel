@@ -1,7 +1,7 @@
 @extends('itens.layout')
  
 @section('content')
-    <div class="row">
+    <div class="row" style="padding: 20px 0;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Lista de compras</h2>
@@ -20,9 +20,9 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th width="280px">Action</th>
+            <th>Número</th>
+            <th>Nome</th>
+            <th width="300px">Ação</th>
         </tr>
         @foreach ($itens as $item)
         <tr>
@@ -31,14 +31,12 @@
             <td>
                 <form action="{{ route('itens.destroy',$item->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('itens.show',$item->id) }}">Show</a>
-    
-                    <a class="btn btn-primary" href="{{ route('itens.edit',$item->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('itens.edit',$item->id) }}">Editar</a>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>
         </tr>

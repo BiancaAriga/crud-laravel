@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
+use App\Models\Iten;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class ItenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $itens = Item::latest()->paginate(5);
+        $itens = Iten::latest()->paginate(5);
     
         return view('itens.index',compact('itens'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -42,7 +42,7 @@ class ItemController extends Controller
             'name' => 'required',
         ]);
     
-        Item::create($request->all());
+        Iten::create($request->all());
      
         return redirect()->route('itens.index')
                         ->with('success','Item criado com sucesso.');
@@ -51,10 +51,10 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show(Iten $item)
     {
         return view('itens.show',compact('item'));
     }
@@ -62,10 +62,10 @@ class ItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(Item $item)
+    public function edit(Iten $item)
     {
         return view('itens.edit',compact('item'));
     }
@@ -74,10 +74,10 @@ class ItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(Request $request, Iten $item)
     {
         $request->validate([
             'name' => 'required',
@@ -92,10 +92,10 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Item  $item
+     * @param  \App\Models\Iten  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy(Iten $item)
     {
         $item->delete();
     

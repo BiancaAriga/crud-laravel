@@ -12,6 +12,7 @@ Para rodar:
     - https://github.com/BiancaAriga/crud-laravel
 
   rodar os comandos:
+    -composer install
     -php artisan migrate
     -php artisan serve
 
